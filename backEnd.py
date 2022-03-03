@@ -1,23 +1,36 @@
+# the imports so far, LEAVE THEM ALONE, if you wanna do anything, add to them in a seperate list 
 import pymongo
 import datetime as dt
 
+# space for your imports:
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# this is important and allows for the database to work, dont touch it
 myClient = pymongo.MongoClient("mongodb://localhost:27017/")
-
 myDB = myClient["mydatabase"]
-
 mCollec = myDB["posts"]
 
+
+# this is largely unimportant, its what im trying to construct the posts out of, you can add to it but please dont remove anything
 dic = {"postType" : "", 
               "title" : "", 
               "text" : "", 
               "date+time" : ""
     }
 
+
+# prints out all the items in the collection
 def displayInCollection():
     for x in mCollec.find():
         print(x)
 
-
+# this is a command line interpretation of what i want from the final product, leave it alone pls
 def makePost():
     time = dt.datetime.now()
     print("""What is post type: 
@@ -41,17 +54,14 @@ def makePost():
     dic = {"postType" : postType, 
               "title" : title, 
               "text" : text, 
-              "date+time" : time
-    }
-    addDicToCollection(dic)
-        
-def addDicToCollection(dictionary):
-    mCollec.insert_one(dictionary)
-    
-    
-    
-if __name__ == "__main__":
-    makePost()
-    displayInCollection()
-    
+              "date+time" : time}
+    addDicToCollection(mCollec, dic)
+
+# this adds a dictionary to the collection
+def addDicToCollection(collection, dictionary):
+    collection.insert_one(dictionary)
+
+
+def formatPosts():
+    pass
     

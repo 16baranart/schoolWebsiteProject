@@ -11,7 +11,10 @@ def makePostWebsite():
 
         </head>
 
-        <body>"""
+        <body>
+        
+        <h2>Posts
+        """
     
     webMain = ""
     webSuff = """
@@ -24,7 +27,7 @@ def makePostWebsite():
     for x in dicList:
         title, text, _ = BE.storePostAsVars(x)
         
-        webMain += f"<h1>{title}</h1><p>{text}"
+        webMain += f"<h3>{title}</h3><p>{text}"
     
     webSite = webPre +  " " + webMain + " " +  webSuff
     

@@ -1,0 +1,18 @@
+<!-- This is the default generic file. Each other HTML file is just a specialisation of this one -->
+<!DOCTYPE html>
+<html>
+  <head> <!-- If a title is provided (ie, return: render_template(FILE.html, title="title")), then it'll print the title on the tab, rather than just saying "DangeruDGS" -->
+    {% if title %}
+      <title> - {{title}}</title>
+    {% else %}
+      <title></title>
+    {% endif %}
+  </head>
+
+  <body>
+    <div>
+
+      {% block content %} {% endblock content %} <!-- This is where the specialisation happens. Refer to other HTML files to see what happens here -->
+    </div>
+  </body>
+</html>

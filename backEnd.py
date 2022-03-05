@@ -16,7 +16,7 @@ def makeDB():
     return collection
 
 
-# this is largely unimportant, its what im trying to construct the posts out of, you can add to it but dont remove
+# this is largely unimportant, its a template that i likw having as a reference
 dic = {"postType" : "", 
               "title" : "", 
               "text" : "", 
@@ -76,6 +76,8 @@ def sortCollection(collection, sort, ascending):
         return collection.find().sort(sort, -1)
 
 if __name__ == "__main__": # Will only run if the program has
+    
+    makePost()
     
     mCollec = makeDB()
     

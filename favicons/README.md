@@ -1,9 +1,15 @@
-<!-- This is the default generic file. Each other HTML file just specialises by adding onto it in the block content part -->
-<!DOCTYPE html>
-<html>
-  <head> <!-- itll print the title on the tab, and hopefully, make a favicon aswell -->
-    
-    <!-- does the favicon stuff, so far it doesnt work -->
+# Your Favicon Package
+
+This package was generated with [RealFaviconGenerator](https://realfavicongenerator.net/) [v0.16](https://realfavicongenerator.net/change_log#v0.16)
+
+## Install instructions
+
+To install this package:
+
+Extract this package in <code>&lt;web site&gt;/favicons/</code>. If your site is <code>http://www.example.com</code>, you should be able to access a file named <code>http://www.example.com/favicons/favicon.ico</code>.
+
+Insert the following code in the `head` section of your pages:
+
     <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -13,18 +19,5 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    
-    {% if title %}
-      <title> - {{title}}</title>
-    {% else %}
-      <title></title>
-    {% endif %}
-  </head>
 
-  <body>
-    <div>
-
-      {% block content %} {% endblock content %} <!-- This is where the specialisation happens. Refer to other HTML files to see what happens here -->
-    </div>
-  </body>
-</html>
+*Optional* - Check your favicon with the [favicon checker](https://realfavicongenerator.net/favicon_checker)

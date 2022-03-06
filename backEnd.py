@@ -6,9 +6,6 @@ import datetime as dt
 # import whatever.py
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-myClient = pymongo.MongoClient("mongodb://localhost:27017/")
-myDB = myClient["mydatabase"]
-mCollec = myDB["posts"]
 
 # this is important and allows for the database to work, dont touch it
 def makeDB():
@@ -29,7 +26,7 @@ dic = {"postType" : "",
 # prints out all the items in the collection ----- this might be useless, remove if such
 def displayInCollection():
     for x in mCollec.find():
-        print(x["title"])
+        print(x)
 
 # this is a command line interpretation of what i want from the final product, getting the data from the website itself
 def makePost():
@@ -80,8 +77,7 @@ def sortCollection(collection, sort, ascending):
 
 if __name__ == "__main__": # Will only run if the program has
     
-    makePost()
-    
+    mCollec = makeDB()
     
     dicList = sortCollection(mCollec, "date+time", False)
     for x in dicList:

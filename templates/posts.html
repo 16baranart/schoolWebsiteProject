@@ -2,9 +2,17 @@
 {% extends "default.html" %}
 {% block content %}
 <div>
-  
-  <h1>Hello and Welcome to our website</h1>
-  <a href="{{ url_for('posts') }}">Posts</a>
-  <p>Here there will be posts on stuff</p>
+
+    
+    <h2>Posts:</h2>
+
+    {% for dictionary in dictionaries %}
+    
+
+
+        <h3>{{dictionary.title}}</h3>
+        <p>{{dictionary.text}}</p>
+
+  {% endfor %}
 </div>
 {% endblock content %}

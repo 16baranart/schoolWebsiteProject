@@ -1,7 +1,13 @@
 <!-- Goes into "default.html" and does all the stuff inside there first. Once it gets to "% block content % % endblock content %", it goes back here -->
 {% extends "default.html" %}
 {% block content %}
-  <div>
-      {{displayInCollection()}}
+  
+    {% for dictionary in dictionaries %}
+    <div>
+
+        <h1>{{dictionary.title}}</h1>
+        <p>{{dictionary.text}}</p>
+
   </div>
+  {% endfor %}
 {% endblock content %}

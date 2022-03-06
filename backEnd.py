@@ -6,6 +6,9 @@ import datetime as dt
 # import whatever.py
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+myClient = pymongo.MongoClient("mongodb://localhost:27017/")
+myDB = myClient["mydatabase"]
+mCollec = myDB["posts"]
 
 # this is important and allows for the database to work, dont touch it
 def makeDB():
@@ -79,7 +82,6 @@ if __name__ == "__main__": # Will only run if the program has
     
     makePost()
     
-    mCollec = makeDB()
     
     dicList = sortCollection(mCollec, "date+time", False)
     for x in dicList:

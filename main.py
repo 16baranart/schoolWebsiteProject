@@ -2,45 +2,20 @@ import backEnd as BE
 import flask
 
 app = flask.Flask(__name__)
-
-def makePostWebsite():
-    webPre = """<!DOCTYPE html>
-    <html>
-        <head>
-            <title>Posts</title>
-
-        </head>
-
-        <body>
-        
-        <h2>Posts
-        """
-    
-    webMain = ""
-    webSuff = """
-    
-        </body>
-    </html>
-    """
-    
-    dicList = BE.sortCollection(BE.makeDB(), "date+time", False)
-    for x in dicList:
-        title, text, _ = BE.storePostAsVars(x)
-        
-        webMain += f"<h3>{title}</h3><p>{text}"
-    
-    webSite = webPre +  " " + webMain + " " +  webSuff
-    
-    return webSite
+titles = []
+texts = []
 
 
-homeS = makePostWebsite()
+
+
 
 # HOME PAGE ------------------------------------------------------------------------------------------- #
 @app.route("/") # If you type in website.com/, it redirects you to website.com/home
 @app.route("/home") # The following function is what happens when you go to website.com/home
 def home():
-    return homeS # Passes the "posts" variable to the homepage, so they can be installed
+    dicList = BE.sortCollection(BE.makeDB(), "date+time", False)
+
+    return flask.render_template("home.html", dictionaries = dicList) # Passes the "posts" variable to the homepage, so they can be installed
 
 
 # RUN ------------------------------------------------------------------------------------------------- #

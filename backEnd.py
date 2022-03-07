@@ -79,6 +79,8 @@ if __name__ == "__main__": # Will only run if the program has
     
     mCollec = makeDB()
     
+    makePost()
+    
     dicList = sortCollection(mCollec, "date+time", False)
     for x in dicList:
         title, text, _ = storePostAsVars(x)

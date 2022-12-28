@@ -1,7 +1,6 @@
 {% extends "default.html" %} <!-- Goes into "default.html" and does all the stuff inside there first. 
   Once it gets to "{% block content %} {% endblock content %}", it goes back here -->
 
-{% block content %}
 <div>
   
   <h1>Welocme to </h1>
@@ -12,4 +11,3 @@
   <a href="{{ url_for('posts') }}">Posts</a>
   <p>Here there will be posts on stuff</p>
 </div>
-{% endblock content %}

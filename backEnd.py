@@ -16,7 +16,7 @@ def makeDB():
     return collection
 
 
-# this is largely unimportant, its a template that i likw having as a reference
+# this is a template that i like having as a reference
 dic = {"postType" : "", 
               "title" : "", 
               "text" : "", 
